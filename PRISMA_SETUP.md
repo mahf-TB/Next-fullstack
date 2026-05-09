@@ -34,16 +34,20 @@ pnpm add -D tsx
 ### Fichier `prisma/schema.prisma`
 
 ```prisma
-datasource db {
-  provider = "postgresql" // ou mysql / sqlite
-  url      = env("DATABASE_URL")
-}
-
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/prisma"
 }
+
+datasource db {
+  provider = "postgresql"
+}
 ```
+
+### Environment variables declared in this file are NOT automatically loaded by Prisma.
+- Please add `import "dotenv/config";` to your `prisma.config.ts` file, 
+- or use the Prisma CLI with Bun to load environment variables from .env files: https://pris.ly/prisma-config-env-vars.
+
 
 ### Fichier `.env`
 

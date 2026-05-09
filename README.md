@@ -28,21 +28,25 @@ In `prisma/schema.prisma`:
 
 ```prisma
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 ```
+
+### Environment variables declared in this file are NOT automatically loaded by Prisma.
+- Please add `import "dotenv/config";` to your `prisma.config.ts` file, 
+- or use the Prisma CLI with Bun to load environment variables from .env files: https://pris.ly/prisma-config-env-vars.
 
 Create a `.env` file at the project root:
 
 ```bash
 DATABASE_URL="postgresql://user:password@host:port/database?schema=public"
 
+# seeder 
 ADMIN_EMAIL="admin@example.com"
 ADMIN_PASSWORD="admin123"
 ADMIN_ROLE="ADMIN"
